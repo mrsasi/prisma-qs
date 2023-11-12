@@ -1,0 +1,22 @@
+show databases;
+
+create database [dbname];
+
+use [dbname];
+
+CREATE TABLE User (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  email VARCHAR(255) UNIQUE,
+  name VARCHAR(255)
+);
+
+CREATE TABLE Post (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(255),
+  content TEXT,
+  published BOOLEAN DEFAULT false,
+  authorId INT,
+  FOREIGN KEY (authorId) REFERENCES User(id)
+);
+
+show tables;
